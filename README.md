@@ -1,4 +1,6 @@
-# AngularFinalProject
+# FoodOrb Website
+
+![Alt text](/FoodOrb/Screenshot11.jpg?raw=true "Optional Title")
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
 
