@@ -1,0 +1,67 @@
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+    </a>
+
+    <div class="col order-first">
+      <button type="button" class="btn btn-lg"  style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:xx-large;" routerLink='/postloginhome'>FoodOrb</button>
+    </div>
+
+
+<button type="button" class="btn btn-primary" style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:x-large; color: grey;" routerLink='/cart'>Cart</button>
+<div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:x-large; color: grey;" aria-expanded="false">
+      {{this.name}}
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" routerLink='/postloginhome/profile'>Profile</a>
+        <a class="dropdown-item" routerLink='/postloginhome/settings'>Settings</a>
+        <a class="dropdown-item" (click)='logout()'> Logout</a>
+        <a class="dropdown-item" routerLink='/postloginhome/orders'>View Orders</a>
+    </div>
+</div>
+</header>
+<div class="card-footer">
+    <a class="btn btn-secondary" routerLink='/postloginhome'>Go Back</a>
+</div><br>
+<div *ngIf="productscart!=null" >
+    <h2 style="color:black;">Order Details: Order has been placed successfully</h2>
+        <br>
+    <div class="container">
+    <table class="table table-striped">
+        <thead class="table table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Restaurant</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of productscart">
+                <td>{{product.dishName}}</td>
+                <td>{{product.cost}}</td>
+                <td>{{product.restaurant}}</td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <th>{{total()}}</th>
+                <th></th>
+            </tr>
+        </tbody>
+    </table>
+    <h4 style="color: black;">Your food is been cooked. Sit back and relax while our partners deliver hot and yummy food at your doorstep.</h4>
+    <h4 style="color: black;">Please pay the above total on delivery</h4>
+
+    <div class="input-group">
+        <button type="submit" class="btn btn-danger" (click)="cancelOrder()">Cancel Order</button>
+    </div>
+</div>
+
+</div>
+<div *ngIf="productscart==null">
+    <br>
+    <h2 style="color: black;">Order Details</h2>
+    <h3 style="color: black;">No orders placed currently</h3>
+    <h4 style="color: black;">You can order something from the website</h4>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>

@@ -1,0 +1,64 @@
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+    </a>
+
+    <div class="col order-first">
+      <button type="button" class="btn btn-lg"  style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:xx-large;" routerLink='/postloginhome'>FoodOrb</button>
+    </div>
+
+
+<button type="button" class="btn btn-primary" style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:x-large; color: grey;" routerLink='/cart'>Cart</button>
+<div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:x-large; color: grey;" aria-expanded="false">
+      {{this.name}}
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" routerLink='./profile'>Profile</a>
+        <a class="dropdown-item" routerLink='./settings'>Settings</a>
+        <a class="dropdown-item" (click)='logout()'> Logout</a>
+        <a class="dropdown-item" routerLink='/postloginhome/orders'>View Orders</a>
+    </div>
+</div>
+</header>
+<div class="card-footer">
+    <a class="btn btn-secondary" routerLink='/postloginhome'>Go Back</a>
+</div><br>
+<div class="container" >
+        <div class="py-5 text-center" style="color: #cfcace;">
+        <div class="py-5 text-center" style="color: #cfcace;">
+<h2 style="color:black;">Contents of your Cart</h2>
+<br>
+<div class="container">
+<table class="table table-striped">
+    <thead class= "table table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Restaurant</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of productscart">
+            <td>{{product.dishName}}</td>
+            <td>{{product.cost}}</td>
+            <td>{{product.restaurant}}</td>
+            <td><button class="btn btn-primary" (click)="onDelete(product.id)">Delete</button></td>
+        </tr>
+        <tr>
+            <th>Total</th>
+            <th>{{total()}}</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </tbody>
+</table>
+
+<div class="input-group">
+    <a class="btn btn-success" (click)="confirmOrder()">Confirm Order</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="submit" class="btn btn-danger" routerLink='/postloginhome'>Cancel</button>
+</div>
+<br><br><br><br><br>
+</div>
+</div>

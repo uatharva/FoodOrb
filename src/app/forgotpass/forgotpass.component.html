@@ -1,0 +1,46 @@
+<div class="col d-flex justify-content-center" >
+<form [mustMatch]="['password','confirmPassword']">
+    <div class="mb-3">
+        <br><br><br><br><br>
+        <label for="usermail" class="form-label">Enter your registered email</label>
+        <input type="email" class="form-control" name="usermail" placeholder="Enter Email" [(ngModel)]="user.usermail"/>
+    </div>
+
+    <div class="mb-3">
+        <input type="button" value="Verify" (click)="checkUser()"/>
+   </div>
+    <div *ngIf="check==true">
+
+        <div class="mb-3">
+            <input type="password" name="password" [(ngModel)]="user.password" [ngClass]="{ 'is-invalid': password.touched && password.invalid }" #password="ngModel" class="form-control" placeholder="Customer password" required minlength="6">
+        <div *ngIf="password.touched && password.invalid" class="invalid-feedback">
+            <div *ngIf="password.errors.required">
+                Customer password is required
+            </div>
+            <div *ngIf="password.errors.minlength">
+                Customer password must be 6 chars long
+            </div>
+        </div>
+    </div>
+
+
+        <div class="mb-3">
+            <input type="password" name="confirmPassword" [(ngModel)]="user.confirmPassword" [ngClass]="{ 'is-invalid': confirmPassword.touched && confirmPassword.invalid }" #confirmPassword="ngModel" class="form-control" placeholder="Customer confirmPassword" required>
+        <div *ngIf="confirmPassword.touched && confirmPassword.invalid" class="invalid-feedback">
+            <div *ngIf="confirmPassword.errors.required">
+                Customer confirmPassword is required
+            </div>
+            <div *ngIf="confirmPassword.errors.mustMatch">
+                Passwords dont match
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <input type="button" value="Update password" (click)="updateUser()"/>
+   </div>
+    
+    </div>  
+</form>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>

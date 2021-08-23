@@ -1,0 +1,65 @@
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+    </a>
+
+    <div class="col order-first">
+      <button type="button" class="btn btn-lg"  style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:xx-large;" routerLink='/postloginhome'>FoodOrb</button>
+    </div>
+
+
+<button type="button" class="btn btn-primary" style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:x-large; color: grey;" routerLink='/postloginhome/cart'>Cart</button>
+<div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:x-large; color: grey;" aria-expanded="false">
+      {{customer.name}}
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" routerLink='/postloginhome/profile'>Profile</a>
+        <a class="dropdown-item" routerLink='/postloginhome/settings'>Settings</a>
+        <a class="dropdown-item" (click)='logout()'> Logout</a>
+        <a class="dropdown-item" routerLink='/postloginhome/orders'>View Orders</a>
+    </div>
+</div>
+</header>
+
+
+<div>
+    <div class="card-header">
+        <h2>Profile Details</h2>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped" style="color:black;">
+            <tbody>
+                <tr>
+                    <th>Customer Name</th>
+                    <td>{{customer.name}}</td>
+                </tr>
+                <tr>
+                    <th>Customer Email</th>
+                    <td>{{customer.usermail}}</td>
+                </tr>
+                <tr>
+                    <th>Customer Payment Details</th>
+                    <td>{{customer.payment}}</td>
+                </tr>
+                <tr>
+                    <th>Customer Address Details</th>
+                    <td>{{customer.address}}</td>
+                </tr>
+                <tr>
+                    <th>Customer Contact</th>
+                    <td>{{customer.contact}}</td>
+                </tr>
+                <tr>
+                    <th>Customer Profession</th>
+                    <td>{{customer.profession}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-secondary" routerLink='/postloginhome'>Go Back</a><br><br><br><br><br>
+    </div>
+</div>
+

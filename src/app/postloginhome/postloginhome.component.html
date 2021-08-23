@@ -1,0 +1,109 @@
+<div class="container">
+
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+            </a>
+        
+            <div class="col order-first">
+              <button type="button" class="btn btn-lg"  style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:xx-large;" routerLink='/postloginhome'>FoodOrb</button>
+            </div>
+        
+        
+        <button type="button" class="btn btn-primary" style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:x-large; color: grey;" (click)="gotoCheckout()">Cart</button>
+        <div class="dropdown show">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:x-large; color: grey;" aria-expanded="false">
+              {{customer.name}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" routerLink='/postloginhome/profile'>Profile</a>
+                <a class="dropdown-item" routerLink='/postloginhome/settings'>Settings</a>
+                <a class="dropdown-item" (click)='logout()'> Logout</a>
+                <a class="dropdown-item" routerLink='/postloginhome/orders'>View Orders</a>
+            </div>
+    </div>
+        </header>
+    <main >
+        <br>
+        <form>
+            <div class="mb-3">
+                <input type="text" (keyup)="onKeyUpEvent($event)" class="form-control" id="searchstring" name="searchstring" [(ngModel)]="this.searchstring" placeholder="Search"/>
+            </div>
+        </form>
+        <div class="py-5 text-center" style="color:black;">
+            <h1 style="font-size: xx-large; opacity: 0.85;">Menu</h1>
+        </div>
+        <div class="row g-5" style="margin-right: 5px; margin-left: 5px;">
+            <div class="col-md-5 col-lg-4 order-md-last">
+                <h4 class="d-flex justify-content-between align-items-center mb-3" style=" opacity: 0.85;">
+                    <span style="color: black; font-size: xx-large;">Your cart</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-sm" *ngFor="let prod of productList">
+                        <div>
+                            <h6 class="my-0">{{prod.dishName}}</h6>
+                            <small class="text-muted">{{prod.id}}</small>
+                        </div>
+                        <span class="text-muted">{{prod.cost}}</span>
+                    </li>
+
+                </ul>
+
+                <form class="card p-2">
+                    <div class="input-group">
+                        <button type="submit" class="btn btn-secondary" (click)="gotoCheckout()">Checkout</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-7 col-lg-8">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                                        <div *ngFor="let product of updatedProducts">
+                        
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src={{product.imageUrl}}>
+
+                            <div class="card-body">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <th>Dish Id</th>
+                                            <td>{{ product.id}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Dish Name</th>
+                                            <td>{{ product.dishName}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Restaurant</th>
+                                            <td>{{ product.restaurant}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Rating</th>
+                                            <td>{{ product.rating}}</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <th>Dish Price</th>
+                                            <td>{{ product.cost}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
+                                        <button type="button" (click)="addToCart(product)" class="btn btn-sm btn-outline-secondary">Add to cart</button>
+                                        <a class="btn btn-sm btn-outline-secondary" [routerLink]="['/postloginhome/product-detail',product.id]">Show Details</a>
+                                    </div>
+                                    <!-- <small class="text-muted">9 mins</small> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

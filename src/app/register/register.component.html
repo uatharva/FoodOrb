@@ -1,0 +1,77 @@
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+    </a>
+
+    <div class="col order-first">
+      <button type="button" class="btn btn-lg"  style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:xx-large;" routerLink='/postloginhome'>FoodOrb</button>
+    </div>
+    <div>
+        <button type="button" class="btn btn-outline-primary me-2" style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:x-large; color: grey;" routerLink='/login'>Login</button>
+        <button type="button" class="btn btn-primary" style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:x-large; color: grey;" routerLink='/register'>Register</button>  
+      </div>
+</header>
+
+<div class="col d-flex justify-content-center">
+    <div class="card" style="width: 25rem;">
+        <div class="card-header">
+            <h1>User Registration</h1>
+        </div>
+    <div class="card-body">
+        <form name="form" [mustMatch]="['password','confirmPassword']" (ngSubmit)="custForm.form.valid && register()" #custForm="ngForm" novalidate>
+            <div class="mb-3">
+                <!-- <label for="name">Customer Name</label> -->
+                <input type="text" name="name" [(ngModel)]="user.name" [ngClass]="{ 'is-invalid': name.touched && name.invalid }" #name="ngModel" class="form-control" placeholder="Customer Name" required>
+            <div *ngIf="name.touched && name.invalid" class="invalid-feedback">
+                <div *ngIf="name.errors.required" >
+                    Customer name is required
+                </div>
+            </div>
+        </div>
+            <div class="mb-3">
+                <!-- <label for="email">Customer Email</label> -->
+                <input type="email" name="usermail" [(ngModel)]="user.usermail" [ngClass]="{ 'is-invalid': usermail.touched && usermail.invalid }" #usermail="ngModel" class="form-control" placeholder="Customer Email" required email>
+            <div *ngIf="usermail.touched && usermail.invalid" class="invalid-feedback">
+                <div *ngIf="usermail.errors.required">
+                    Customer Email is required
+                </div>
+                <div *ngIf="usermail.errors.email">
+                    Customer email is not valid
+                </div>
+            </div>
+        </div>
+
+            <div class="mb-3">
+                <!-- <label for="amount">Customer Amount</label> -->
+                <input type="password" name="password" [(ngModel)]="user.password" [ngClass]="{ 'is-invalid': password.touched && password.invalid }" #password="ngModel" class="form-control" placeholder="Customer password" required minlength="6">
+            <div *ngIf="password.touched && password.invalid" class="invalid-feedback">
+                <div *ngIf="password.errors.required">
+                    Customer password is required
+                </div>
+                <div *ngIf="password.errors.minlength">
+                    Customer password must be 6 chars long
+                </div>
+            </div>
+        </div>
+        
+            <div class="mb-3">
+                <!-- <label for="amount">Customer Amount</label> -->
+                <input type="password" name="confirmPassword" [(ngModel)]="user.confirmPassword" [ngClass]="{ 'is-invalid': confirmPassword.touched && confirmPassword.invalid }" #confirmPassword="ngModel" class="form-control" placeholder="Confirm Password" required>
+            <div *ngIf="confirmPassword.touched && confirmPassword.invalid" class="invalid-feedback">
+                <div *ngIf="confirmPassword.errors.required">
+                    Confirm Password is required
+                </div>
+                <div *ngIf="confirmPassword.errors.mustMatch">
+                    Passwords dont match
+                </div>
+            </div>
+        </div>
+            <div class="mb-3">
+                <input type="submit" value="Register Customer" [disabled]="!custForm.form.valid" class="btn btn-success btn-sm"/> |
+                <input type="reset" value="Clear All" class="btn btn-danger btn-sm"/>
+            </div>
+        </form>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+</div>

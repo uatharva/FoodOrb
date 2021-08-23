@@ -1,0 +1,68 @@
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+    </a>
+
+    <div class="col order-first">
+      <button type="button" class="btn btn-lg"  style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:xx-large;" routerLink='/postloginhome'>FoodOrb</button>
+    </div>
+
+
+<button type="button" class="btn btn-primary" style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:x-large; color: grey;" routerLink='/postloginhome/cart'>Cart</button>
+<div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:x-large; color: grey;" aria-expanded="false">
+      {{this.name}}
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" routerLink='/postloginhome/profile'>Profile</a>
+        <a class="dropdown-item" routerLink='/postloginhome/settings'>Settings</a>
+        <a class="dropdown-item" (click)='logout()'> Logout</a>
+        <a class="dropdown-item" routerLink='/postloginhome/orders'>View Orders</a>
+    </div>
+</div>
+</header>
+
+<div >
+    <div class="card-header">
+        <h1 style="color: black; font-size: xx-large;">FOOD DETAILS</h1>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <th>Dish ID</th>
+                    <td>{{product.id}}</td>
+                </tr>
+                <tr>
+                    <th>Dish Name</th>
+                    <td>{{product.dishName}}</td>
+                </tr>
+                <tr>
+                    <th>Dish Price</th>
+                    <td>{{product.cost}}</td>
+                </tr>
+                <tr>
+                    <th>Dish Rating</th>
+                    <td>{{product.rating}}</td>
+                </tr>
+                <tr>
+                    <th>Dish Restaurant</th>
+                    <td>{{product.restaurant}}</td>
+                </tr>
+                <tr>
+                    <th>Dish Description</th>
+                    <td>{{product.description}}</td>
+                </tr>
+                <tr>
+                    <th>Dish Image</th>
+                    <td><img src={{product.imageUrl}} style="width: 150px; height: 150px;"></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-secondary" routerLink='/postloginhome'>Go Back</a>
+    </div>
+</div>
+

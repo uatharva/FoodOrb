@@ -1,0 +1,46 @@
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+    </a>
+
+    <div class="col order-first">
+      <button type="button" class="btn btn-lg"  style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:xx-large;" routerLink='/postloginhome'>FoodOrb</button>
+    </div>
+
+    <div class="col-md-3 text-end">
+
+      <div>
+        <button type="button" class="btn btn-outline-primary me-2" style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:x-large; color: grey;" routerLink='/login'>Login</button>
+        <button type="button" class="btn btn-primary" style="background-color: transparent; border-color: transparent; box-shadow: none; font-size:x-large; color: grey;" routerLink='/register'>Register</button>  
+      </div>
+    </div>
+  </header>
+
+<div class="col d-flex justify-content-center">
+    <div class="card" style="width: 25rem;">
+        <div class="card-header">
+            <h2>User Login</h2>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="login()">
+                <div class="mb-3">
+                    <label for="usermail" class="form-label">User Email</label>
+                    <input type="text" class="form-control" [(ngModel)]="user.usermail" name="usermail"
+                        placeholder="User email">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" [(ngModel)]="user.password" name="password"
+                        placeholder="******">
+                </div>
+                <div class="mb-3">
+                    <input type="checkbox" name="rememberme"> Remember Me
+            </div>
+                <div class="mb-3">
+                    <input type="submit" class="btn btn-success btn-sm" value="Login" /> |
+                    <button type="button" class="btn btn-primary" routerLink='/forgotpass'>Forgot password</button><br><br><br><br><br>  
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
