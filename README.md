@@ -34,3 +34,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ![Alt text](https://github.com/uatharva/FoodOrb/blob/main/Screenshot%20(13).png?raw=true "Optional Title")
 ![Alt text](https://github.com/uatharva/FoodOrb/blob/main/Screenshot%20(14).png?raw=true "Optional Title")
 ![Alt text](https://github.com/uatharva/FoodOrb/blob/main/Screenshot%20(15).png?raw=true "Optional Title")
+![Alt text](https://github.com/uatharva/FoodOrb/blob/main/Screenshot%20(16).png?raw=true "Optional Title")
+![Alt text](https://github.com/uatharva/FoodOrb/blob/main/Screenshot%20(17).png?raw=true "Optional Title")
