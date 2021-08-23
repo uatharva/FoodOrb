@@ -1,6 +1,6 @@
 # FoodOrb Website
 
-![Alt text](https://github.com/uatharva/FoodOrb/Screenshot (11).png?raw=true "Optional Title")
+![Alt text](https://github.com/uatharva/FoodOrb/Screenshot(11).png?raw=true "Optional Title")
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
 
